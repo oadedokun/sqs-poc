@@ -5,9 +5,4 @@
     <ConfigurationSettings>
     </ConfigurationSettings>
   </Role>
-  <Role name="WarehouseAvailableStock.Worker">
-    <Instances count="1" />
-    <ConfigurationSettings>
-    </ConfigurationSettings>
-  </Role>
 </ServiceConfiguration>

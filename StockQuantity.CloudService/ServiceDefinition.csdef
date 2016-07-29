@@ -4,8 +4,4 @@
     <ConfigurationSettings>
     </ConfigurationSettings>
   </WorkerRole>
-  <WorkerRole name="WarehouseAvailableStock.Worker" vmsize="Small">
-    <ConfigurationSettings>
-    </ConfigurationSettings>
-  </WorkerRole>
 </ServiceDefinition>
