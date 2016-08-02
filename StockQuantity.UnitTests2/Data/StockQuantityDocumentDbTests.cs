@@ -42,7 +42,10 @@ namespace StockQuantity.UnitTests.Data
         public void ShouldCreateStockQuantityDocument()
         {
             var warehouseAvailableStock = new WarehouseAvailableStock("FC01", "ABC", 20, 0, 0, DateTime.UtcNow);
-            var stockQuantity = new StockQuantity.Data.StockQuantity(123, new[] { warehouseAvailableStock }, new[] { new RegionStock("US", 123, 20, new RegionStockStatus(10, StockStatus.InStock), new[] { warehouseAvailableStock }) });
+            var stockQuantity = new StockQuantity.Data.StockQuantity(
+                123, 
+                new[] { warehouseAvailableStock }, 
+                new[] { new RegionStock("US", 123, new[] { warehouseAvailableStock }, 10) });
 
             try
             {
@@ -139,7 +142,7 @@ namespace StockQuantity.UnitTests.Data
         public void WhenCreatingStockQuantityAndDuplicateExistsThenShouldThrowException()
         {
             var warehouseAvailableStock = new WarehouseAvailableStock("FC01", "ABC", 20, 0, 0, DateTime.UtcNow);
-            var stockQuantity = new StockQuantity.Data.StockQuantity(123, new[] { warehouseAvailableStock }, new[] { new RegionStock("US", 20, 0, new RegionStockStatus(10, StockStatus.InStock), new[] { warehouseAvailableStock }) });
+            var stockQuantity = new StockQuantity.Data.StockQuantity(123, new[] { warehouseAvailableStock }, new[] { new RegionStock("US", 0, new[] { warehouseAvailableStock }, 10) });
             Assert.Throws<DocumentClientException>(() => _stockQuantityDocumentDb.CreateStockQuantity(stockQuantity).Wait());
         }
 
@@ -147,7 +150,7 @@ namespace StockQuantity.UnitTests.Data
         public void ShouldGetStockQuantity()
         {
             var warehouseAvailableStock = new WarehouseAvailableStock("FC01", "ABC", 20, 0, 0, DateTime.UtcNow);
-            var expectedStockQuantity = new StockQuantity.Data.StockQuantity(123, new[] { warehouseAvailableStock }, new[] { new RegionStock("US", 20, 0, new RegionStockStatus(10, StockStatus.InStock), new[] { warehouseAvailableStock }) });
+            var expectedStockQuantity = new StockQuantity.Data.StockQuantity(123, new[] { warehouseAvailableStock }, new[] { new RegionStock("US", 0, new[] { warehouseAvailableStock }, 10) });
             StockQuantity.Data.StockQuantity actualStockQuantity = null;
             
             actualStockQuantity = _stockQuantityDocumentDb.GetStockQuantityByVariantId(expectedStockQuantity.VariantId);

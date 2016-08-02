@@ -53,6 +53,14 @@
       <RoleName>StockQuantity.Worker</RoleName>
       <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
     </ProjectReference>
+    <ProjectReference Include="..\WarehouseAvailableStock.Worker\WarehouseAvailableStock.Worker.csproj">
+      <Name>WarehouseAvailableStock.Worker</Name>
+      <Project>{F46FD3F8-4367-4E7A-AC01-F454A5A9E290}</Project>
+      <Private>True</Private>
+      <RoleType>Worker</RoleType>
+      <RoleName>WarehouseAvailableStock.Worker</RoleName>
+      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
+    </ProjectReference>
   </ItemGroup>
   <!-- Import the target files for this project template -->
   <PropertyGroup>

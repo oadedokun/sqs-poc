@@ -109,9 +109,9 @@
       <Project>{471a946b-19db-48fe-b303-9ca115b09d68}</Project>
       <Name>StockQuantity.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\StockQuantity\StockQuantity.csproj">
-      <Project>{15c8458e-4af1-4ced-9c7f-dd7c3aac0dc9}</Project>
-      <Name>StockQuantity</Name>
+    <ProjectReference Include="..\StockQuantity2\StockQuantity2.csproj">
+      <Project>{a08e5252-bf46-40cb-88d3-fc3d55650705}</Project>
+      <Name>StockQuantity2</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
