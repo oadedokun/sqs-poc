@@ -36,6 +36,14 @@
       <HintPath>..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="FluentAssertions, Version=4.13.0.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentAssertions.4.13.0\lib\net45\FluentAssertions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentAssertions.Core, Version=4.13.0.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentAssertions.4.13.0\lib\net45\FluentAssertions.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Azure.Documents.Client, Version=1.9.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Azure.DocumentDB.1.9.2\lib\net45\Microsoft.Azure.Documents.Client.dll</HintPath>
       <Private>True</Private>
@@ -66,8 +74,15 @@
     <Compile Include="Data\StockQuantityDocumentDbTests.cs" />
     <Compile Include="Domain\Builders\IDomainEntityBuilder.cs" />
     <Compile Include="Domain\Builders\RegionStockBuilder.cs" />
+    <Compile Include="Domain\DomainHelpers\DomainTestExtentions.cs" />
+    <Compile Include="Domain\RegionalStockPositionAggregateShould2.cs" />
+    <Compile Include="Domain\RegionalStockPositionAggregateShould3.cs" />
+    <Compile Include="Domain\RegionStockPostionAggregateShould.cs" />
     <Compile Include="Domain\RegionStockTests.cs" />
     <Compile Include="Domain\Builders\WarehouseAvailableStockBuilder.cs" />
+    <Compile Include="Domain\DomainHelpers\SampleWarehousePosition.cs" />
+    <Compile Include="Domain\DomainHelpers\DomainEntityBuilders.cs" />
+    <Compile Include="Domain\DomainHelpers\WarehouseStockPositionType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

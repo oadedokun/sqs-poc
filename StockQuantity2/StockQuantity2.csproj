@@ -32,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Azure.Documents.Client, Version=1.9.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Azure.DocumentDB.1.9.2\lib\net45\Microsoft.Azure.Documents.Client.dll</HintPath>
       <Private>True</Private>
@@ -60,12 +64,20 @@
     <Compile Include="Data\StockQuantityAggregateDocDb.cs" />
     <Compile Include="Domain\InvalidWarehouseAvailableStockException.cs" />
     <Compile Include="Domain\IStockQuantityAggregate.cs" />
+    <Compile Include="Domain\New\Constants.cs" />
+    <Compile Include="Domain\New\IRegionConfiguration.cs" />
+    <Compile Include="Domain\New\IRegionWarehouseMap.cs" />
+    <Compile Include="Domain\New\RegionalStockPosition.cs" />
+    <Compile Include="Domain\New\WarehouseStockPosition.cs" />
     <Compile Include="Domain\RegionStock.cs" />
+    <Compile Include="Domain\New\RegionStockPostionAggregate.cs" />
     <Compile Include="Domain\RegionStockStatus.cs" />
+    <Compile Include="Domain\New\RegionWarehouses.cs" />
     <Compile Include="Domain\StaleWarehouseAvailableStockException.cs" />
     <Compile Include="Domain\StockQuantityAggregate.cs" />
-    <Compile Include="Domain\StockStatus.cs" />
+    <Compile Include="Domain\New\StockStatus.cs" />
     <Compile Include="Domain\WarehouseAvailableStock.cs" />
+    <Compile Include="IoCConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

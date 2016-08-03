@@ -1,4 +1,4 @@
-﻿namespace StockQuantity.Domain
+﻿namespace StockQuantity2.Domain
 {
     public enum StockStatus : int
     {

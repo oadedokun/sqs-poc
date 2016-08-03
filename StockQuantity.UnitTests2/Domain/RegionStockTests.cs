@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
 using StockQuantity.Domain;
+using StockQuantity2.Domain;
 
 namespace StockQuantity.UnitTests.Domain
 {

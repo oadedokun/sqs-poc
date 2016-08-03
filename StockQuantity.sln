@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{07CC7C04-7E8E-4625-AEFE-C5BFF148C3D5}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Core", "2. Core", "{07CC7C04-7E8E-4625-AEFE-C5BFF148C3D5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockQuantity.Contracts", "StockQuantity.Contracts\StockQuantity.Contracts.csproj", "{471A946B-19DB-48FE-B303-9CA115B09D68}"
 EndProject
@@ -16,6 +16,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockQuantity2", "StockQuantity2\StockQuantity2.csproj", "{A08E5252-BF46-40CB-88D3-FC3D55650705}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockQuantity.UnitTests2", "StockQuantity.UnitTests2\StockQuantity.UnitTests2.csproj", "{FB72ED4E-C3FB-4B50-9B8F-C1ED1E3B89BC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Hosting", "1. Hosting", "{7E62D131-953C-4E1E-973B-7F430EEABA21}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,6 +54,10 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{A11AEF76-DEC3-4E1C-8920-F41C473C27EE} = {7E62D131-953C-4E1E-973B-7F430EEABA21}
+		{F46FD3F8-4367-4E7A-AC01-F454A5A9E290} = {7E62D131-953C-4E1E-973B-7F430EEABA21}
+		{BCBB8770-BACF-4468-9858-1FDF3EA9DA9B} = {7E62D131-953C-4E1E-973B-7F430EEABA21}
+		{A08E5252-BF46-40CB-88D3-FC3D55650705} = {07CC7C04-7E8E-4625-AEFE-C5BFF148C3D5}
 		{FB72ED4E-C3FB-4B50-9B8F-C1ED1E3B89BC} = {07CC7C04-7E8E-4625-AEFE-C5BFF148C3D5}
 	EndGlobalSection
 EndGlobal

@@ -10,6 +10,7 @@ using Microsoft.ServiceBus.Messaging;
 using Microsoft.WindowsAzure.ServiceRuntime;
 using StockQuantity.Data;
 using StockQuantity.Worker.Messaging;
+using StockQuantity2;
 using WarehouseAvailableStock.Worker;
 
 namespace StockQuantity.Worker
@@ -34,6 +35,8 @@ namespace StockQuantity.Worker
 
         public override bool OnStart()
         {
+            IoCConfig.BuildContainer();
+
             TelemetryConfiguration.Active.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("APPINSIGHTS_INSTRUMENTATIONKEY");
             TelemetryConfiguration.Active.TelemetryInitializers.Add(new ItemCorrelationTelemetryInitializer());
             ServicePointManager.DefaultConnectionLimit = Environment.ProcessorCount * 12;
