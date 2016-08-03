@@ -33,10 +33,10 @@ namespace StockQuantity2.Domain
         public string Id => VariantId.ToString();
 
         [JsonProperty("variantId")]
-        public int VariantId { get; }
+        public int VariantId { get; private set; }
 
         [JsonProperty("version")]
-        public DateTime Version { get; }
+        public DateTime Version { get; private set; }
 
         [JsonProperty("warehouses")]
         public IEnumerable<WarehouseStockPosition> WarehouseStockPositions {

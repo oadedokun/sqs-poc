@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace StockQuantity.Domain
+namespace StockQuantity2.Domain
 {
     public interface IStockQuantityAggregate
     {

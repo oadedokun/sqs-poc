@@ -1,9 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using StockQuantity2.Domain;
 
-namespace StockQuantity.Domain
+namespace StockQuantity2.Domain
 {
+    [Obsolete("has been replaced.")]
     public class RegionStockStatus
     {
         public RegionStockStatus()

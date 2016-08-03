@@ -8,9 +8,9 @@ using Microsoft.Azure;
 using Microsoft.Azure.Documents.Client;
 using Microsoft.ServiceBus.Messaging;
 using Microsoft.WindowsAzure.ServiceRuntime;
-using StockQuantity.Data;
 using StockQuantity.Worker.Messaging;
 using StockQuantity2;
+using StockQuantity2.Data;
 using WarehouseAvailableStock.Worker;
 
 namespace StockQuantity.Worker
@@ -54,7 +54,7 @@ namespace StockQuantity.Worker
 
             _topicClient = TopicClient.CreateFromConnectionString(sqServiceBusConnectionString);
             InitialiseSubscriptionClients();
-            _stockQuantityAggregateStore = new StockQuantityAggregateDocDb(docDbName, docDbsqColName, docDbsvColName, docDbEndpointName, docDbEndpointKey, _connectionPolicy);
+            _stockQuantityAggregateStore = new RegionStockPostionAggregateRepository(docDbName, docDbsqColName, docDbsvColName, docDbEndpointName, docDbEndpointKey, _connectionPolicy);
             _warehouseAvailableStockChangedV1Handler = new WarehouseAvailableStockChangedV1Handler(_topicClient, _stockQuantityAggregateStore);
             return base.OnStart();
         }

@@ -22,7 +22,7 @@ namespace StockQuantity.UnitTests2.Domain.DomainHelpers
             IoCConfig.Inject(mockRegionWarehouseMap.Object);
             IoCConfig.Inject(mockRegionConfiguration.Object);
 
-            return new RegionStockPostionAggregate();
+            return new RegionStockPostionAggregate(100377);
         }
 
         public static RegionStockPostionAggregate InitialiseRegionStockAggregate(WarehouseStockPositionType positionTypeAtAllWarehouses, string sku)

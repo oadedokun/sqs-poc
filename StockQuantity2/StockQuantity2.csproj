@@ -61,7 +61,7 @@
     <Compile Include="Data\IStockQuantityAggregateStore.cs" />
     <Compile Include="Data\SkuVariantMap.cs" />
     <Compile Include="Data\StockQuantity.cs" />
-    <Compile Include="Data\StockQuantityAggregateDocDb.cs" />
+    <Compile Include="Data\RegionStockPostionAggregateRepository.cs" />
     <Compile Include="Domain\InvalidWarehouseAvailableStockException.cs" />
     <Compile Include="Domain\IStockQuantityAggregate.cs" />
     <Compile Include="Domain\New\Constants.cs" />

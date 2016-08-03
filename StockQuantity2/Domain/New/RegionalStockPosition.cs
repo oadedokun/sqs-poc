@@ -2,26 +2,23 @@ namespace StockQuantity2.Domain
 {
     public class RegionalStockPosition
     {
-        public RegionalStockPosition(string region)
+        public RegionalStockPosition() { }
+
+        public RegionalStockPosition(string region, int available, int reserved)
         {
             Region = region;
-            Status = CalculateStockStatus(AvailableQuantity);
-        }
-
-        public RegionalStockPosition(string region, int available, int reserved) : this(region)
-        {
             AvailableQuantity = available;
             ReservedQuantity = reserved;
             Status = CalculateStockStatus(available);
         }
 
-        public string Region { get; }
+        public string Region { get; private set; }
 
-        public int AvailableQuantity { get; }
+        public int AvailableQuantity { get; private set; }
 
-        public int ReservedQuantity { get; }
+        public int ReservedQuantity { get; private set; }
 
-        public StockStatus Status { get; }
+        public StockStatus Status { get; private set; }
 
         private static StockStatus CalculateStockStatus(int available)
         {

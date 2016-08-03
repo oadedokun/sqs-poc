@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Newtonsoft.Json;
-using StockQuantity.Domain;
+using StockQuantity2.Domain;
 
-namespace StockQuantity.Data
+namespace StockQuantity2.Data
 {
+    [Obsolete("has been replaced.")]
     public class StockQuantity
     {
         public StockQuantity()

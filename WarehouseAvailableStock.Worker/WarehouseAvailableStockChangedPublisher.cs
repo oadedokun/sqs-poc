@@ -7,7 +7,7 @@ using Microsoft.ApplicationInsights.DataContracts;
 using Microsoft.ServiceBus.Messaging;
 using StockQuantity.Contracts;
 using StockQuantity.Contracts.Events;
-using StockQuantity.Data;
+using StockQuantity2.Data;
 
 namespace WarehouseAvailableStock.Worker
 {

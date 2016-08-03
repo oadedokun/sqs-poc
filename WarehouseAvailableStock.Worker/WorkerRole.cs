@@ -7,7 +7,7 @@ using Microsoft.ServiceBus.Messaging;
 using Microsoft.WindowsAzure.ServiceRuntime;
 using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.Azure.Documents.Client;
-using StockQuantity.Data;
+using StockQuantity2.Data;
 
 namespace WarehouseAvailableStock.Worker
 {
@@ -66,7 +66,7 @@ namespace WarehouseAvailableStock.Worker
             var docDbEndpointKey = CloudConfigurationManager.GetSetting("Microsoft.DocumentDB.StockQuantity.EUN.AccountKey");
             int concurrencyLimit = Convert.ToInt16(CloudConfigurationManager.GetSetting("MaximumConcurrency"));
             _topicClient = TopicClient.CreateFromConnectionString(wasServiceBusConnectionString);
-            _stockQuantityAggregateStore = new StockQuantityAggregateDocDb(docDbName, docDbsqColName, docDbsvColName, docDbEndpointName, docDbEndpointKey, _connectionPolicy);
+            _stockQuantityAggregateStore = new RegionStockPostionAggregateRepository(docDbName, docDbsqColName, docDbsvColName, docDbEndpointName, docDbEndpointKey, _connectionPolicy);
             _publisher = new WarehouseAvailableStockChangedPublisher(_topicClient, _stockQuantityAggregateStore, concurrencyLimit, RequestTelemetryHelper.StartNewRequest("PublishWarehouseAvailableStockChanged", DateTimeOffset.UtcNow));
             return base.OnStart();
         }

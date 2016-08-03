@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace StockQuantity.Domain
+namespace StockQuantity2.Domain
 {
     public class StaleWarehouseAvailableStockException : Exception
     {

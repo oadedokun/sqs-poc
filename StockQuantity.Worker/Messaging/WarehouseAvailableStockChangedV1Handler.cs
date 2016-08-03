@@ -1,8 +1,8 @@
 ﻿using System;
 using Microsoft.ServiceBus.Messaging;
 using StockQuantity.Contracts.Events;
-using StockQuantity.Data;
-using StockQuantity.Domain;
+using StockQuantity2.Data;
+using StockQuantity2.Domain;
 
 namespace StockQuantity.Worker.Messaging
 {
@@ -40,7 +40,7 @@ namespace StockQuantity.Worker.Messaging
             }
 
             var stockQuantityAggregate = CreateStockQuantityAggregateBySku(message.Sku, _stockQuantityStore);
-            stockQuantityAggregate.ApplyStockChanges(new Domain.WarehouseAvailableStock(message.FulfilmentCentre, message.Sku, message.Pickable, message.Reserved, message.Allocated, message.Version));
+            stockQuantityAggregate.ApplyStockChanges(new StockQuantity2.Domain.WarehouseAvailableStock(message.FulfilmentCentre, message.Sku, message.Pickable, message.Reserved, message.Allocated, message.Version));
             _stockQuantityStore.Persist(stockQuantityAggregate);
             PublishRegionStockChanged(stockQuantityAggregate);
         }

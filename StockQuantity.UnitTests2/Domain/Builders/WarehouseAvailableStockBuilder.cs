@@ -1,5 +1,5 @@
 using System;
-using StockQuantity.Domain;
+using StockQuantity2.Domain;
 
 namespace StockQuantity.UnitTests.Domain
 {

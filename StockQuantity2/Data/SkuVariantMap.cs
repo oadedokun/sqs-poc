@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace StockQuantity.Data
+namespace StockQuantity2.Data
 {
     public class SkuVariantMap
     {

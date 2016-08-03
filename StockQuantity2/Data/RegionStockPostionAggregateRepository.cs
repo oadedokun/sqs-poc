@@ -4,29 +4,53 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Azure.Documents;
 using Microsoft.Azure.Documents.Client;
-using StockQuantity.Domain;
+using StockQuantity2.Domain;
 
-namespace StockQuantity.Data
+namespace StockQuantity2.Data
 {
-    public class StockQuantityAggregateDocDb : IStockQuantityAggregateStore
+    public class RegionStockPostionAggregateRepository : IStockQuantityAggregateStore
     {
         private readonly DocumentClient _documentClient;
+
         private readonly string _dbName;
-        private readonly string _stockQuantityCollectionName;
+
+        private readonly string _aggregateCollectionName;
+
         private readonly string _skuVariantMapCollectionName;
+
         private bool _disposed = false;
-        
-        public StockQuantityAggregateDocDb(string dbName, string stockQuantityCollectionName, string skuVariantMapCollectionName, string endpointUri, string primaryKey, ConnectionPolicy connectionPolicy)
+
+        public RegionStockPostionAggregateRepository(string dbName, string aggregateCollectionName, string skuVariantMapCollectionName, string endpointUri, string primaryKey, ConnectionPolicy connectionPolicy)
         {
             _documentClient = new DocumentClient(new Uri(endpointUri), primaryKey, connectionPolicy);
             _dbName = dbName;
-            _stockQuantityCollectionName = stockQuantityCollectionName;
+            _aggregateCollectionName = aggregateCollectionName;
             _skuVariantMapCollectionName = skuVariantMapCollectionName;
             Initialize();
         }
+
+        public async Task CreateRegionStockPositionAggregate(RegionStockPostionAggregate aggregate)
+        {
+            await _documentClient.CreateDocumentAsync(
+                UriFactory.CreateDocumentCollectionUri(_dbName, _aggregateCollectionName),
+                aggregate);
+        }
+
+        public RegionStockPostionAggregate GetRegionStockPostionAggregateByVariantId(int variantId)
+        {
+            var response = 
+                _documentClient.CreateDocumentQuery<RegionStockPostionAggregate>(UriFactory.CreateDocumentCollectionUri(_dbName, _aggregateCollectionName))
+                    .Where(sq => sq.VariantId == variantId)
+                    .AsEnumerable()
+                    .SingleOrDefault();
+
+            return response;
+        }
+
+
         public StockQuantity GetStockQuantityByVariantId(int variantId)
         {
-            var response = _documentClient.CreateDocumentQuery<StockQuantity>(UriFactory.CreateDocumentCollectionUri(_dbName, _stockQuantityCollectionName))
+            var response = _documentClient.CreateDocumentQuery<StockQuantity>(UriFactory.CreateDocumentCollectionUri(_dbName, _aggregateCollectionName))
                             .AsEnumerable().SingleOrDefault(sq => sq.VariantId == variantId);
 
             if (response == null)
@@ -36,10 +60,12 @@ namespace StockQuantity.Data
 
             return response;
         }
+
         public async Task CreateStockQuantity(StockQuantity stockQuantity)
         {
-            await _documentClient.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(_dbName, _stockQuantityCollectionName), stockQuantity);
+            await _documentClient.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(_dbName, _aggregateCollectionName), stockQuantity);
         }
+
 
         public SkuVariantMap GetSkuVariantMap(string sku)
         {
@@ -59,7 +85,7 @@ namespace StockQuantity.Data
                     Condition = stockQuantity.Version
                 }
             };
-            await _documentClient.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(_dbName, _stockQuantityCollectionName, stockQuantity.Id), stockQuantity, requestOptions);
+            await _documentClient.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(_dbName, _aggregateCollectionName, stockQuantity.Id), stockQuantity, requestOptions);
         }
 
         public async Task Persist(IStockQuantityAggregate stockQuantityAggregate)

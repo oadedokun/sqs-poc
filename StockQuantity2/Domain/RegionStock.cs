@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
 
-namespace StockQuantity.Domain
+namespace StockQuantity2.Domain
 {
+    [Obsolete("has been replaced.")]
     public class RegionStock
     {
         public RegionStock()

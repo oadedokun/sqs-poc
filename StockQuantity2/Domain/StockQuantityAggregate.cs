@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
-using Newtonsoft.Json;
+﻿using System;
+using System.Collections.Generic;
 
-namespace StockQuantity.Domain
+namespace StockQuantity2.Domain
 {
+    [Obsolete("has been replaced.")]
     public class StockQuantityAggregate : IStockQuantityAggregate
     {
         public StockQuantityAggregate()

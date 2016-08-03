@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using StockQuantity.Domain;
+using StockQuantity2.Domain;
 
-namespace StockQuantity.Data
+namespace StockQuantity2.Data
 {
     public interface IStockQuantityAggregateStore : IDisposable
     {
